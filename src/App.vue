@@ -24,7 +24,6 @@ export default {
     }
   },
   created() {
-    console.log(this.platForm)
     const imageList = [
       require('./assets/images/one.jpg'),
       require('./assets/images/two.jpg'),
