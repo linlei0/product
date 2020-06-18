@@ -55,7 +55,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin: auto;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   /* margin-top: 60px; */
 }
 </style>
