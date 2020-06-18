@@ -1,18 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <!-- <van-button type="default">默认按钮</van-button> -->
+    <van-image 
+    v-for="(item,index) in list"
+    :key="index"
+    @click="clickImage(item,index)"
+    width="100%" 
+    height="30rem" 
+    :src="item">
+    </van-image>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { ImagePreview } from 'vant';
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    const imageList = [
+      require('./assets/images/one.jpg'),
+      require('./assets/images/two.jpg'),
+      require('./assets/images/three.jpg')
+    ]
+    for(let i=1;i<15;i++){
+      imageList.push(require(`./assets/images/${i}.jpg`))
+    }
+    this.list = imageList
+  },
+  methods: {
+    clickImage(item,index) {
+      ImagePreview({
+        images: [...this.list],
+        startPosition: index
+      })
+    }
   }
+
 }
 </script>
 
@@ -23,6 +51,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
