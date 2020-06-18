@@ -6,10 +6,12 @@
     v-for="(item,index) in list"
     :key="index"
     @click="clickImage(item,index)"
-    width="100%" 
-    height="30rem" 
+    :width="platForm==='App' ? '100%':'auto'" 
+    :height="platForm==='App' ?'30rem': 'auto'" 
     :src="item">
     </van-image>
+
+
   </div>
 </template>
 <script>
@@ -22,6 +24,7 @@ export default {
     }
   },
   created() {
+    console.log(this.platForm)
     const imageList = [
       require('./assets/images/one.jpg'),
       require('./assets/images/two.jpg'),
@@ -34,6 +37,7 @@ export default {
   },
   methods: {
     clickImage(item,index) {
+      if(this.platForm != 'App') return
       ImagePreview({
         images: [...this.list],
         startPosition: index
@@ -50,7 +54,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  margin: auto;
+  
   /* margin-top: 60px; */
 }
 </style>
