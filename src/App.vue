@@ -29,7 +29,7 @@ export default {
       require('./assets/images/two.jpg'),
       require('./assets/images/three.jpg')
     ]
-    for(let i=1;i<15;i++){
+    for(let i=1;i<23;i++){
       imageList.push(require(`./assets/images/${i}.jpg`))
     }
     this.list = imageList
